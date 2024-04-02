@@ -153,7 +153,7 @@ EOF
         10) runjob harddisableext ;;
         11) runjob hardenableext ;;
         12) runjob autodisableexts ;;
-        13) runjob edit /etc/opt/chrome/policies/managed/policy.json ;;
+        13) runjob pollen ;;
         14) runjob install_crouton ;;
         15) runjob run_crouton ;;
         16) runjob enable_dev_boot_usb ;;
@@ -1036,4 +1036,33 @@ apkmain() {
   fi
 }
 
+pollen() {
+echo "+##############################################+"
+echo "# Welcome To Pollen!                           #"
+echo "# The User Policy Editor                       #"
+echo "# -------------------------------------------- #"
+echo "# Developers:                                 #"
+echo "# - OlyB                                       #"
+echo "# - Rafflesia                                 #"
+echo "# - Scaratek                                   #"
+echo "# - r58Playz                                   #"
+echo "# - Honkychunkymonkey - Additional Changes     #"
+echo "+##############################################+"
+echo "May Ultrablue Rest in Peace, o7"
+
+sleep 1
+
+echo "Please copy and paste your JSON content below:"
+read -r json_content
+
+mkdir -p /tmp/overlay/etc/opt/chrome/policies/managed
+
+echo "$json_content" > /tmp/overlay/etc/opt/chrome/policies/managed/policy.json
+
+cp -a -L /etc/* /tmp/overlay/etc 2> /dev/null
+mount --bind /tmp/overlay/etc /etc
+
+echo ""
+echo "Pollen has been successfully applied!"
+}
 
