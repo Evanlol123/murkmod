@@ -166,7 +166,7 @@ EOF
         23) runjob attempt_chromebrew_install ;;
         24) runjob attempt_dev_install ;;
         25) runjob do_updates && exit 0 ;;
-        26) runjob apkmain
+        26) runjob apkmain ;;
         101) runjob hard_disable_nokill ;;
         111) runjob hard_enable_nokill ;;
         112) runjob ext_purge ;;
@@ -926,7 +926,6 @@ if [ "$0" = "$BASH_SOURCE" ]; then
     main
 fi
 
-#!/bin/bash
 # Made by kxtz#8161
 # Licenced under the MIT Licence
 # Script is linked at https://github.com/kxtzownsu/fakeapk
@@ -1036,8 +1035,5 @@ apkmain() {
     credits
   fi
 }
-
-apkmain
-
 
 
